@@ -10,10 +10,10 @@ export default function Plugin() {
     <>
       <Navigation />
 
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-24 pb-24 px-6">
         <div className="shell max-w-[780px] text-center">
           <motion.div
-            className="inline-flex items-center gap-2 border border-[#E5E4E0] rounded-full px-4 py-1.5 text-[0.65rem] font-semibold tracking-wider uppercase text-[#6B6B68] bg-white/50 mb-8"
+            className="inline-flex items-center gap-2 border border-[#E5E4E0] rounded-full px-4 py-1.5 text-[0.65rem] font-semibold tracking-wider uppercase text-[#6B6B68] bg-white/50 mb-6"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
@@ -22,7 +22,7 @@ export default function Plugin() {
           </motion.div>
 
           <motion.h1
-            className="font-['Space_Grotesk'] text-[2.5rem] md:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-6"
+            className="font-['Space_Grotesk'] text-[2.5rem] md:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05] mb-5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.1 }}
@@ -33,16 +33,16 @@ export default function Plugin() {
           </motion.h1>
 
           <motion.p
-            className="text-[#6B6B68] text-base leading-relaxed max-w-[560px] mx-auto mb-10"
+            className="text-[#6B6B68] text-base leading-relaxed max-w-[640px] mx-auto mb-8"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.2 }}
           >
-            A Figma plugin that exports your designed frames directly to clean, production-ready React components — bridging the gap between design and engineering.
+            A Figma plugin that transforms Figma designs into clean, production-ready React components, helping designers and developers move from design to code faster.
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-3 justify-center mb-20"
+            className="flex flex-wrap gap-4 justify-center mb-14"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.3 }}
@@ -66,36 +66,24 @@ export default function Plugin() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16 text-left"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left items-stretch"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.35 }}
           >
             {[
-              { icon: "⚡", title: "One-Click Export", desc: "Select any frame in Figma and export it as a React component in seconds." },
-              { icon: "🎯", title: "Clean Code Output", desc: "Generates readable, maintainable React code — not the noise that other export tools produce." },
-              { icon: "🔗", title: "Design-Dev Bridge", desc: "Built because I was tired of manually translating every frame I designed." },
+              { icon: "⚡", title: "One-Click Export", desc: "Export any Figma frame to a clean React component in one click." },
+              { icon: "🎯", title: "Clean Code Output", desc: "Generate readable, production-ready React code instantly." },
+              { icon: "🔗", title: "Design to Development", desc: "Turn designs into code faster with a seamless workflow." },
             ].map((f) => (
-              <div key={f.title} className="card p-6">
-                <p className="text-2xl mb-4">{f.icon}</p>
-                <h3 className="font-['Space_Grotesk'] font-bold text-base text-[#1C1C1A] mb-2">{f.title}</h3>
-                <p className="text-[#6B6B68] text-sm leading-relaxed">{f.desc}</p>
+              <div key={f.title} className="card p-5 flex flex-col h-full">
+                <p className="text-xl mb-2">{f.icon}</p>
+                <h3 className="font-['Space_Grotesk'] font-bold text-sm text-[#1C1C1A] mb-2">{f.title}</h3>
+                <p className="text-[#6B6B68] text-xs leading-relaxed flex-1">{f.desc}</p>
               </div>
             ))}
           </motion.div>
 
-          <motion.div
-            className="card p-8 md:p-10 text-left"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease }}
-          >
-            <p className="label mb-4">The origin story</p>
-            <p className="text-[#6B6B68] text-sm leading-relaxed">
-              FrameForge was born out of frustration. Every time I completed a high-fidelity prototype, the handoff to engineers involved endless back-and-forth on spacing, colors, and component structure. I built FrameForge to export Figma frames directly into usable React components — removing the translation layer entirely. It's the most direct expression of my hybrid design-build identity.
-            </p>
-          </motion.div>
         </div>
       </section>
 

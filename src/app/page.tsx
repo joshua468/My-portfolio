@@ -150,9 +150,9 @@ export default function Home() {
 
           <FadeUp>
             <div className="mt-10 text-center">
-              <Link href="/work" className="btn btn-secondary">
+              <a href="https://www.behance.net/adegbesanjoshua" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                 View All Projects &rarr;
-              </Link>
+              </a>
             </div>
           </FadeUp>
         </div>

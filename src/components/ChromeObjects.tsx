@@ -7,6 +7,26 @@ import * as THREE from "three"
 
 const BRAND = "#2169F9"
 
+const PARTICLES_DATA = (() => {
+  const count = 80
+  const pos: { x: number; y: number; z: number; size: number; speed: number; offset: number; opacity: number }[] = []
+  for (let i = 0; i < count; i++) {
+    const theta = Math.random() * Math.PI * 2
+    const phi = Math.acos(2 * Math.random() - 1)
+    const r = 1.8 + Math.random() * 1.2
+    pos.push({
+      x: r * Math.sin(phi) * Math.cos(theta),
+      y: r * Math.sin(phi) * Math.sin(theta),
+      z: r * Math.cos(phi),
+      size: 0.008 + Math.random() * 0.015,
+      speed: 0.1 + Math.random() * 0.2,
+      offset: Math.random() * Math.PI * 2,
+      opacity: 0.2 + Math.random() * 0.3,
+    })
+  }
+  return pos
+})()
+
 function GradientOrb() {
   const groupRef = useRef<THREE.Group>(null)
   const coreRef = useRef<THREE.Mesh>(null)
@@ -42,24 +62,7 @@ function GradientOrb() {
     }
   })
 
-  const particles = useMemo(() => {
-    const count = 80
-    const pos: { x: number; y: number; z: number; size: number; speed: number; offset: number }[] = []
-    for (let i = 0; i < count; i++) {
-      const theta = Math.random() * Math.PI * 2
-      const phi = Math.acos(2 * Math.random() - 1)
-      const r = 1.8 + Math.random() * 1.2
-      pos.push({
-        x: r * Math.sin(phi) * Math.cos(theta),
-        y: r * Math.sin(phi) * Math.sin(theta),
-        z: r * Math.cos(phi),
-        size: 0.008 + Math.random() * 0.015,
-        speed: 0.1 + Math.random() * 0.2,
-        offset: Math.random() * Math.PI * 2,
-      })
-    }
-    return pos
-  }, [])
+  const particles = PARTICLES_DATA
 
   const ringData = useMemo(() => {
     return [0, 1, 2].map((i) => ({
@@ -159,7 +162,7 @@ function GradientOrb() {
             <meshBasicMaterial
               color={i % 4 === 0 ? "#FFFFFF" : i % 3 === 0 ? BRAND : "#6BA3FF"}
               transparent
-              opacity={0.2 + Math.random() * 0.3}
+              opacity={p.opacity}
             />
           </mesh>
         ))}
