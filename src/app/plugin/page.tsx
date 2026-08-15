@@ -69,7 +69,7 @@ export default function Plugin() {
             className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left items-stretch"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.35 }}
+            transition={{ duration: 0.7, ease, delay: 0.4 }}
           >
             {[
               { icon: "⚡", title: "One-Click Export", desc: "Export any Figma frame to a clean React component in one click." },
@@ -82,6 +82,25 @@ export default function Plugin() {
                 <p className="text-[#6B6B68] text-xs leading-relaxed flex-1">{f.desc}</p>
               </div>
             ))}
+          </motion.div>
+
+          {/* Credibility row */}
+          <motion.div
+            className="mt-10 pt-8 border-t border-[#E5E4E0] flex flex-wrap items-center justify-center gap-8 text-[#9A9A96]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+          >
+            {/* TODO: Replace placeholder values with real numbers once available */}
+            <div className="text-center">
+              <p className="font-['Space_Grotesk'] text-2xl font-bold text-[#1C1C1A]">★★★★★</p>
+              <p className="text-xs mt-1">Free on Figma Community</p>
+            </div>
+            <div className="w-px h-8 bg-[#E5E4E0]" />
+            <div className="text-center">
+              <p className="font-['Space_Grotesk'] text-2xl font-bold text-[#1C1C1A]">Open Source</p>
+              <p className="text-xs mt-1">Free forever</p>
+            </div>
           </motion.div>
 
         </div>

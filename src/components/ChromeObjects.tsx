@@ -5,24 +5,29 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { MeshDistortMaterial, Float } from "@react-three/drei"
 import * as THREE from "three"
 
-const BRAND = "#2169F9"
+const BRAND = "#7C6FFF"
 
 const PARTICLES_DATA = (() => {
-  const count = 80
   const pos: { x: number; y: number; z: number; size: number; speed: number; offset: number; opacity: number }[] = []
-  for (let i = 0; i < count; i++) {
-    const theta = Math.random() * Math.PI * 2
-    const phi = Math.acos(2 * Math.random() - 1)
-    const r = 1.8 + Math.random() * 1.2
-    pos.push({
-      x: r * Math.sin(phi) * Math.cos(theta),
-      y: r * Math.sin(phi) * Math.sin(theta),
-      z: r * Math.cos(phi),
-      size: 0.008 + Math.random() * 0.015,
-      speed: 0.1 + Math.random() * 0.2,
-      offset: Math.random() * Math.PI * 2,
-      opacity: 0.2 + Math.random() * 0.3,
-    })
+  const cols = 7
+  const rows = 5
+  const spacingX = 0.6
+  const spacingY = 0.6
+  const offsetX = -(cols - 1) * spacingX / 2
+  const offsetY = -(rows - 1) * spacingY / 2
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      if (Math.random() < 0.25) continue
+      pos.push({
+        x: offsetX + i * spacingX + (Math.random() - 0.5) * 0.08,
+        y: offsetY + j * spacingY + (Math.random() - 0.5) * 0.08,
+        z: (Math.random() - 0.5) * 0.3,
+        size: 0.006 + Math.random() * 0.008,
+        speed: 0.03 + Math.random() * 0.07,
+        offset: Math.random() * Math.PI * 2,
+        opacity: 0.06 + Math.random() * 0.1,
+      })
+    }
   }
   return pos
 })()
@@ -173,7 +178,7 @@ function GradientOrb() {
 
 export default function ChromeObjects() {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0">
+    <div className="absolute inset-0 pointer-events-none z-0">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
         dpr={[1, 1.5]}

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { motion, useMotionValue, useSpring } from "framer-motion"
+import { motion, useMotionValue, useSpring, animate } from "framer-motion"
 
 export default function Cursor() {
   const cursorX = useMotionValue(-100)
@@ -13,9 +13,13 @@ export default function Cursor() {
   const springX = useSpring(cursorX, springConfig)
   const springY = useSpring(cursorY, springConfig)
 
-  const isHovering = useRef(false)
+  const trailScale = useSpring(1, { damping: 20, stiffness: 300 })
+  const isTouchDevice = useRef(true)
 
   useEffect(() => {
+    isTouchDevice.current = window.matchMedia("(pointer: coarse)").matches
+    if (isTouchDevice.current) return
+
     const move = (e: MouseEvent) => {
       cursorX.set(e.clientX)
       cursorY.set(e.clientY)
@@ -25,33 +29,52 @@ export default function Cursor() {
       }, 60)
     }
 
-    const handleHoverStart = () => { isHovering.current = true }
-    const handleHoverEnd = () => { isHovering.current = false }
+    const onEnter = () => trailScale.set(2.5)
+    const onLeave = () => trailScale.set(1)
 
     document.addEventListener("mousemove", move)
-    document.querySelectorAll("a, button, [data-hover]").forEach((el) => {
-      el.addEventListener("mouseenter", handleHoverStart)
-      el.addEventListener("mouseleave", handleHoverEnd)
-    })
+
+    const observe = () => {
+      document.querySelectorAll("a, button, [data-hover]").forEach((el) => {
+        el.addEventListener("mouseenter", onEnter)
+        el.addEventListener("mouseleave", onLeave)
+      })
+    }
+
+    observe()
+    const observer = new MutationObserver(observe)
+    observer.observe(document.body, { childList: true, subtree: true })
 
     return () => {
       document.removeEventListener("mousemove", move)
+      observer.disconnect()
       document.querySelectorAll("a, button, [data-hover]").forEach((el) => {
-        el.removeEventListener("mouseenter", handleHoverStart)
-        el.removeEventListener("mouseleave", handleHoverEnd)
+        el.removeEventListener("mouseenter", onEnter)
+        el.removeEventListener("mouseleave", onLeave)
       })
     }
-  }, [cursorX, cursorY, trailX, trailY])
+  }, [cursorX, cursorY, trailX, trailY, trailScale])
+
+  if (isTouchDevice.current) return null
 
   return (
     <>
       <motion.div
-        className="fixed pointer-events-none z-[9999] w-3 h-3 rounded-full bg-[#7C6FFF] mix-blend-screen"
-        style={{ x: springX, y: springY, translateX: "-50%", translateY: "-50%" }}
+        className="fixed pointer-events-none z-[9999] w-2 h-2 rounded-full mix-blend-difference"
+        style={{ x: springX, y: springY, translateX: "-50%", translateY: "-50%", background: "var(--accent)" }}
       />
       <motion.div
-        className="fixed pointer-events-none z-[9998] w-9 h-9 rounded-full border border-[rgba(124,111,255,0.3)] mix-blend-screen"
-        style={{ x: trailX, y: trailY, translateX: "-50%", translateY: "-50%" }}
+        className="fixed pointer-events-none z-[9998] rounded-full border mix-blend-difference"
+        style={{
+          x: trailX,
+          y: trailY,
+          translateX: "-50%",
+          translateY: "-50%",
+          width: 36,
+          height: 36,
+          borderColor: "rgba(124,111,255,0.4)",
+          scale: trailScale,
+        }}
       />
     </>
   )

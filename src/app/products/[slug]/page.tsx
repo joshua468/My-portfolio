@@ -8,6 +8,55 @@ import { products } from "@/lib/data"
 
 const ease = [0.22, 1, 0.36, 1]
 
+function ProductIcon({ slug }: { slug: string }) {
+  const s = { width: 28, height: 28, viewBox: "0 0 24 24" as const, fill: "none", stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "round" as const, strokeLinejoin: "round" as const }
+  switch (slug) {
+    case "crampai":
+      return (
+        <svg {...s}>
+          <path d="M19.5 12.572l-7.5 7.428-7.5-7.428A5 5 0 1 1 12 5.001a5 5 0 1 1 7.5 7.571" />
+        </svg>
+      )
+    case "grade":
+      return (
+        <svg {...s}>
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M3 9h18" />
+          <path d="M9 3v6" />
+          <path d="M15 3v6" />
+          <path d="M9 15h2" />
+          <path d="M15 15h2" />
+          <path d="M9 19h6" />
+        </svg>
+      )
+    case "calorie":
+      return (
+        <svg {...s}>
+          <path d="M12 22c4-4 8-8.5 8-14C14 8 12 10 12 10S10 8 4 8c0 5.5 4 10 8 14z" />
+          <path d="M12 22V12" />
+        </svg>
+      )
+    case "bird":
+      return (
+        <svg {...s}>
+          <polygon points="8,5 19,12 8,19" />
+        </svg>
+      )
+    case "neondrift":
+      return (
+        <svg {...s}>
+          <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2" />
+        </svg>
+      )
+    default:
+      return (
+        <svg {...s}>
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      )
+  }
+}
+
 export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>()
   const product = products.find((p) => p.slug === slug)
@@ -44,9 +93,9 @@ export default function ProductDetail() {
           >
             <div
               className="rounded-2xl flex items-center justify-center mx-auto mb-5"
-              style={{ width: 64, height: 64, fontSize: "1.875rem", background: product.iconBg, color: product.iconColor }}
+              style={{ width: 64, height: 64, background: product.iconBg, color: product.iconColor }}
             >
-              {product.emoji}
+              <ProductIcon slug={product.slug} />
             </div>
             <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               {product.name}

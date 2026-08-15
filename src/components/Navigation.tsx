@@ -5,7 +5,7 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 
 const links = [
-  { href: "/", label: "work" },
+  { href: "/", label: "home" },
   { href: "/products", label: "products" },
   { href: "/about", label: "about" },
   { href: "/contact", label: "contact" },
@@ -35,13 +35,18 @@ export default function Navigation() {
       <ul className="hidden md:flex items-center gap-8">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="text-sm text-[#6B6B68] hover:text-[#1C1C1A] transition-colors">
+            <Link href={l.href} className="text-sm text-[#6B6B68] hover:text-[#7C6FFF] transition-colors">
               {l.label}
             </Link>
           </li>
         ))}
         <li>
-          <Link href="/plugin" className="text-sm text-[#6B6B68] hover:text-[#1C1C1A] transition-colors">
+          <a href="/Adegbesan Joshua Temitope CV.pdf" target="_blank" rel="noopener noreferrer" className="text-sm text-[#6B6B68] hover:text-[#7C6FFF] transition-colors">
+            cv
+          </a>
+        </li>
+        <li>
+          <Link href="/plugin" className="text-sm text-[#6B6B68] hover:text-[#7C6FFF] transition-colors">
             plugin
           </Link>
         </li>
@@ -80,11 +85,20 @@ export default function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
               >
-                <Link href={l.href} className="text-2xl font-['Space_Grotesk'] font-bold text-[#6B6B68] hover:text-[#1C1C1A] transition-colors">
+                <Link href={l.href} className="text-2xl font-['Space_Grotesk'] font-bold text-[#6B6B68] hover:text-[#7C6FFF] transition-colors">
                   {l.label}
                 </Link>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: links.length * 0.05, duration: 0.4 }}
+            >
+              <a href="/Adegbesan Joshua Temitope CV.pdf" target="_blank" rel="noopener noreferrer" className="text-2xl font-['Space_Grotesk'] font-bold text-[#6B6B68] hover:text-[#7C6FFF] transition-colors">
+                cv
+              </a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

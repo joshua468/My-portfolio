@@ -33,3 +33,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scratch / local
+/app.js
+/dev-server.log
+/*.png
+/Adegbesan Joshua Temitope CV.pdf

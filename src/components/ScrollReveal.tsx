@@ -1,24 +1,48 @@
 "use client"
 
-import { useRef, ReactNode } from "react"
-import { motion, useInView } from "framer-motion"
+import { useRef, useEffect, ReactNode } from "react"
 
-export default function ScrollReveal({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-80px" })
+export default function ScrollReveal({
+  children,
+  className = "",
+  stagger = false,
+}: {
+  children: ReactNode
+  className?: string
+  stagger?: boolean
+}) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    // Check reduced motion preference
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReduced) {
+      el.classList.add("is-visible")
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("is-visible")
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      variants={{
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
-      }}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      className={className}
+      className={`sr${stagger ? " sr-stagger" : ""} ${className}`}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }
