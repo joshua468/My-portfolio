@@ -25,28 +25,28 @@ export default function About() {
     <>
       <Navigation />
 
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-14 sm:pt-20 pb-16 sm:pb-20 px-5 sm:px-6">
         <div className="shell max-w-[780px]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
-            className="mb-14"
+            className="mb-10"
           >
             <p className="label">About</p>
-            <h1 className="font-['Space_Grotesk'] text-[2.5rem] md:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.05]">
+            <h1 className="font-['Space_Grotesk'] text-[1.375rem] md:text-[3.5rem] font-bold tracking-[-0.03em] leading-[1.1]">
               Designing beyond the interface.
             </h1>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
             <FadeUp>
-              <div className="rounded-lg overflow-hidden mb-6" style={{ aspectRatio: "4/5" }}>
+              <div className="rounded-lg overflow-hidden mb-6" style={{ aspectRatio: "4/4" }}>
                 <Image
                   src="/Portfolio%20image.png"
                   alt={personal.name}
                   width={400}
-                  height={500}
+                  height={400}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -63,7 +63,7 @@ export default function About() {
                 With a foundation in design and growing technical expertise, I bridge the gap between product strategy, user needs, and execution.
               </p>
               <p className="text-[#6B6B68] text-sm leading-relaxed mb-6">
-                I've designed AI-driven healthcare interfaces (HealthAI), built and shipped live products (CrampAI, Grade Calculator), created a Figma plugin (FrameForge), and led end-to-end product design for multi-screen applications like Cirql.
+                I&apos;ve designed AI-driven healthcare interfaces (HealthAI), built and shipped live products (CrampAI, Grade Calculator), created a Figma plugin (FrameForge), and led end-to-end product design for multi-screen applications like Cirql.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href={`mailto:${personal.email}`} className="btn btn-primary">
@@ -79,9 +79,9 @@ export default function About() {
             </FadeUp>
           </div>
 
-          <div className="mt-16 text-center">
+          <div className="mt-12 text-center">
             <FadeUp>
-              <p className="text-[#6B6B68] text-sm mb-3">Want to see my full work history?</p>
+              <p className="text-[#6B6B68] text-sm mb-4">Want to see my full work history?</p>
               <a href="/#experience" className="btn btn-secondary">
                 View Experience &rarr;
               </a>
@@ -91,8 +91,8 @@ export default function About() {
         </div>
       </section>
 
-      <footer className="text-center py-8 px-6 border-t border-[#E5E4E0] text-[#9A9A96] text-xs">
-        <div className="shell flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="text-center py-10 px-5 sm:px-6 border-t border-[#E5E4E0] text-[#9A9A96] text-xs">
+        <div className="shell flex flex-col md:flex-row items-center justify-between gap-3">
           <p>&copy; 2026 {personal.name} &middot; Lagos, Nigeria</p>
           <p>Lagos, Nigeria</p>
         </div>

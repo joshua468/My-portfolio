@@ -170,7 +170,7 @@ export const products = [
     slug: "calorie",
     name: "Calorie Tracker",
     emoji: "leaf",
-    url: "https://calorie-tracker-xi-beryl.vercel.app/",
+    url: "https://calorie-tracker-temitech-s-projects.vercel.app/",
     iconBg: "rgba(234, 88, 12, 0.1)",
     iconColor: "#EA580C",
     overview: "A lightweight nutrition-tracking experience designed for simplicity and everyday use.",

@@ -10,7 +10,7 @@ const ease = [0.22, 1, 0.36, 1]
 const fields = [
   { key: "name", label: "Name", type: "text", placeholder: "Your name", idx: "01" },
   { key: "email", label: "Email", type: "email", placeholder: "you@example.com", idx: "02" },
-  { key: "message", label: "Message", type: "textarea", placeholder: "Tell me about your project, timeline, and what you're looking for...", idx: "03" },
+  { key: "message", label: "Message", type: "textarea", placeholder: "Tell me about your project, timeline, and what you&apos;re looking for...", idx: "03" },
 ] as const
 
 export default function Contact() {
@@ -36,7 +36,6 @@ export default function Contact() {
       })
       if (res.ok) setSubmitted(true)
     } catch {
-      // still show success to avoid confusing the user
       setSubmitted(true)
     }
     setSending(false)
@@ -46,36 +45,36 @@ export default function Contact() {
     <>
       <Navigation />
 
-      <main className="px-6 py-20" style={{ background: "var(--cp-paper)", minHeight: "calc(100vh - 60px)" }}>
+      <main className="px-5 sm:px-6 py-12 sm:py-20" style={{ background: "var(--cp-paper)", minHeight: "calc(100vh - 60px)" }}>
         <div style={{ maxWidth: 1120, margin: "0 auto" }}>
 
-          {/* ── Hero banner ── */}
+          {/* Hero banner */}
           <motion.div
             className="cp-hero"
-            style={{ marginTop: 40 }}
+            style={{ marginTop: 20 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease }}
           >
             <div className="relative z-10">
-              <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-6"
+              <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-5"
                 style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.18)", display: "inline-flex", alignItems: "center", gap: 8 }}>
                 <span className="cp-pulse-dot" />
-                <span style={{ fontFamily: "var(--font-ibm-plex-mono), monospace", fontSize: "0.7rem", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)" }}>
+                <span style={{ fontFamily: "var(--font-ibm-plex-mono), monospace", fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)" }}>
                   Open to opportunities
                 </span>
               </div>
-              <h1 style={{ fontFamily: "var(--font-fraunces), serif", fontSize: "clamp(2rem, 4.5vw, 3.2rem)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "white", marginBottom: 16 }}>
+              <h1 style={{ fontFamily: "var(--font-fraunces), serif", fontSize: "clamp(1.75rem, 4.5vw, 2.75rem)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "white", marginBottom: 10 }}>
                 Have an idea worth building?
               </h1>
-              <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.65, color: "rgba(255,255,255,0.85)", maxWidth: 480 }}>
+              <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9375rem", lineHeight: 1.65, color: "rgba(255,255,255,0.85)", maxWidth: 480 }}>
                 Tell me what you&apos;re building. I read every message myself and usually reply within a day.
               </p>
             </div>
           </motion.div>
 
-          {/* ── Two-column section ── */}
-          <div className="cp-two-col" style={{ marginTop: 56 }}>
+          {/* Two-column section */}
+          <div className="cp-two-col" style={{ marginTop: 50 }}>
 
             {/* Left — form */}
             <motion.div
@@ -83,10 +82,10 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 0.1 }}
             >
-              <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontSize: "1.6rem", fontWeight: 700, color: "var(--cp-ink)", marginBottom: 8 }}>
+              <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontSize: "1.375rem", fontWeight: 700, color: "var(--cp-ink)", marginBottom: 8 }}>
                 Let&apos;s talk
               </h2>
-              <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9rem", color: "var(--cp-muted)", marginBottom: 40, lineHeight: 1.6 }}>
+              <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", color: "var(--cp-muted)", marginBottom: 40, lineHeight: 1.6 }}>
                 Fill out the form and I&apos;ll get back to you as soon as possible.
               </p>
 
@@ -98,7 +97,7 @@ export default function Contact() {
                   transition={{ duration: 0.4, ease }}
                 >
                   <span className="cp-success-dot" />
-                  <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9rem", fontWeight: 500, color: "#166534" }}>
+                  <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", fontWeight: 500, color: "#166534" }}>
                     Message sent — I&apos;ll get back to you within 24 hours.
                   </p>
                 </motion.div>
@@ -148,7 +147,7 @@ export default function Contact() {
 
             {/* Right — cards */}
             <motion.div
-              className="flex flex-col gap-5"
+              className="flex flex-col gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 0.2 }}
@@ -157,18 +156,18 @@ export default function Contact() {
               <div className="cp-card cp-card-dark">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="cp-pulse-dot" style={{ background: "#22C55E" }} />
-                  <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.95rem", fontWeight: 600 }}>
+                  <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9375rem", fontWeight: 600 }}>
                     Currently available
                   </span>
                 </div>
-                <p style={{ fontFamily: "var(--font-ibm-plex-mono), monospace", fontSize: "0.7rem", letterSpacing: "0.04em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
+                <p style={{ fontFamily: "var(--font-ibm-plex-mono), monospace", fontSize: "0.6875rem", letterSpacing: "0.04em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
                   Usually responds within 24 hours
                 </p>
               </div>
 
               {/* Quick contact */}
               <div className="cp-card">
-                <p style={{ fontFamily: "var(--font-ibm-plex-mono), monospace", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--cp-muted)", marginBottom: 20 }}>
+                <p style={{ fontFamily: "var(--font-ibm-plex-mono), monospace", fontSize: "0.625rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--cp-muted)", marginBottom: 20 }}>
                   Quick contact
                 </p>
                 <div className="flex flex-col gap-5">
@@ -177,7 +176,7 @@ export default function Contact() {
                     { icon: "pin", label: "Location", value: "Lagos, Nigeria" },
                     { icon: "clock", label: "Working hours", value: "Mon – Fri, 9am – 6pm WAT" },
                   ].map((item) => (
-                    <div key={item.label} className="flex items-center gap-4">
+                    <div key={item.label} className="flex items-center gap-3">
                       <div className="cp-icon-box">
                         {item.icon === "mail" && (
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -198,11 +197,11 @@ export default function Contact() {
                       <div>
                         <p className="cp-tile-label" style={{ marginBottom: 2 }}>{item.label}</p>
                         {item.href ? (
-                          <a href={item.href} style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.88rem", fontWeight: 500, color: "var(--cp-ink)", textDecoration: "none" }}>
+                          <a href={item.href} style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", fontWeight: 500, color: "var(--cp-ink)", textDecoration: "none" }}>
                             {item.value}
                           </a>
                         ) : (
-                          <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.88rem", fontWeight: 500, color: "var(--cp-ink)" }}>
+                          <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", fontWeight: 500, color: "var(--cp-ink)" }}>
                             {item.value}
                           </p>
                         )}
@@ -213,7 +212,7 @@ export default function Contact() {
               </div>
 
               {/* Social pills */}
-              <div className="flex gap-3">
+              <div className="cp-social-wrap">
                 <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="cp-social-pill">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -237,10 +236,10 @@ export default function Contact() {
         </div>
       </main>
 
-      <footer style={{ background: "var(--cp-paper)", marginTop: 64 }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--cp-border)", paddingTop: 24, paddingBottom: 24, textAlign: "center" }}>
-            <p style={{ fontFamily: "var(--font-ibm-plex-mono), monospace", fontSize: "0.7rem", letterSpacing: "0.04em", color: "var(--cp-muted)", textTransform: "uppercase" }}>
+      <footer style={{ background: "var(--cp-paper)", marginTop: 50 }}>
+        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 20px" }}>
+          <div style={{ borderTop: "1px solid var(--cp-border)", paddingTop: 20, paddingBottom: 20, textAlign: "center" }}>
+            <p style={{ fontFamily: "var(--font-ibm-plex-mono), monospace", fontSize: "0.6875rem", letterSpacing: "0.04em", color: "var(--cp-muted)", textTransform: "uppercase" }}>
               &copy; 2026 {personal.name} &middot; Lagos, Nigeria
             </p>
           </div>
