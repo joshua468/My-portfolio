@@ -89,6 +89,25 @@ export default function About() {
             </FadeUp>
           </div>
 
+          <FadeUp>
+            <div className="mt-16 rounded-lg border border-[#E5E4E0] bg-[#FAFAF7] p-6 sm:p-8 text-center">
+              <p className="label mb-3">New Release</p>
+              <p className="font-['Space_Grotesk'] text-lg sm:text-xl font-bold tracking-[-0.02em] mb-2">
+                The Complete Guide to Context Engineering
+              </p>
+              <p className="text-[#6B6B68] text-sm leading-relaxed mb-5 max-w-md mx-auto">
+                A practical guide to designing context systems for AI products — from prompt architecture to production workflows.
+              </p>
+              <a
+                href="https://selar.com/038p8xz8a7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Buy Now &rarr;
+              </a>
+            </div>
+          </FadeUp>
           <div className="divider mt-16" />
         </div>
       </section>
