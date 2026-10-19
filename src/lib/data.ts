@@ -296,7 +296,7 @@ export const capabilities = [
 export const experience = [
   {
     date: "March 2026",
-    company: "AI Engineering Internship",
+    company: "Dev and Design",
     role: "AI Engineering Intern",
     points: [
       "Learning and applying AI engineering principles, including effective prompting, context engineering, and structured workflows using PRDs, rules, and reusable skills to guide AI-assisted development",
