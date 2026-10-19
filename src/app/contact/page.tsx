@@ -45,13 +45,13 @@ export default function Contact() {
     <>
       <Navigation />
 
-      <main className="px-5 sm:px-6 py-12 sm:py-20" style={{ background: "var(--cp-paper)", minHeight: "calc(100vh - 60px)" }}>
+      <main className="px-5 sm:px-6 pt-28 sm:pt-40 pb-20 sm:pb-28" style={{ background: "var(--cp-paper)", minHeight: "100vh", overflowX: "hidden" }}>
         <div style={{ maxWidth: 1120, margin: "0 auto" }}>
 
           {/* Hero banner */}
           <motion.div
             className="cp-hero"
-            style={{ marginTop: 20 }}
+            style={{ marginTop: 40 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease }}
@@ -74,7 +74,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Two-column section */}
-          <div className="cp-two-col" style={{ marginTop: 50 }}>
+          <div className="cp-two-col" style={{ marginTop: 70, marginBottom: 80 }}>
 
             {/* Left — form */}
             <motion.div

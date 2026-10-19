@@ -95,7 +95,7 @@ export const projects: Project[] = [
     image: "/Cirql.png",
     description: "Creating meaningful networking experiences through AI-powered attendee matching and event engagement.",
     role: "Product Designer",
-    year: "2025",
+    year: "2026",
     tools: "Figma",
     overview: "Cirql is an AI powered networking platform designed to help conference and tech event attendees discover relevant people, initiate meaningful conversations, and build professional relationships before, during, and after events.",
     problem: "Conference networking is often inefficient and awkward. Attendees struggle to identify the right people to meet and frequently rely on chance encounters, business cards, or interrupted conversations that rarely lead to lasting connections.",
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     image: "/TrustHire.png",
     description: "Helping job seekers identify and validate legitimate job opportunities while protecting them from fraudulent job listings and recruitment scams.",
     role: "Product Designer",
-    year: "2025",
+    year: "2026",
     tools: "Figma",
     overview: "TrustHire AI is an AI powered recruitment safety platform that helps job seekers verify job opportunities, detect potential scams, and manage applications securely in one place.",
     problem: "Job seekers struggle to quickly and confidently identify fraudulent job offers, leaving them vulnerable to increasingly sophisticated scams that often appear legitimate, spread across informal channels like WhatsApp and email, and exploit urgency and trust resulting in financial loss, wasted time, and reduced confidence in online job opportunities.",
@@ -150,7 +150,7 @@ export const products = [
     slug: "crampai",
     name: "CrampAI",
     emoji: "brain",
-    url: "https://crampai-cqng-hcymbavto-temitech-s-projects.vercel.app",
+    url: "https://crampai-cqng.vercel.app/",
     iconBg: "rgba(124, 111, 255, 0.1)",
     iconColor: "#7C6FFF",
     overview: "Built and launched CRAMPAI, an AI-powered menstrual pain and cycle health assistant that helps women understand their cycles, predict symptoms, and make informed health decisions through personalized AI insights.",
@@ -196,6 +196,86 @@ export const products = [
     overview: "A neon arcade game where you guide an orb through an endless drift, chaining pickups and near misses to build your combo and survive as long as you can.",
     tags: ["Game Development", "Canvas", "JavaScript"],
   },
+  {
+    slug: "bukafinder",
+    name: "Consumable API (Buka Finder)",
+    emoji: "utensils",
+    url: "https://api-production-a74d.up.railway.app/",
+    iconBg: "rgba(245, 158, 11, 0.1)",
+    iconColor: "#F59E0B",
+    overview: "A consumable REST API that serves realistic data for finding local food restaurants, placing orders, and getting orders.",
+    tags: ["REST API", "Backend", "FoodTech"],
+  },
+  {
+    slug: "convertdoc",
+    name: "Convertdoc",
+    emoji: "file",
+    url: "https://ai-integration-slice-p6h4.vercel.app/",
+    iconBg: "rgba(99, 102, 241, 0.1)",
+    iconColor: "#6366F1",
+    overview: "A fast, private document converter that converts Word documents to PDF and PDF files back to Word directly in the browser.",
+    tags: ["Productivity", "Document Tool", "Next.js"],
+  },
+  {
+    slug: "marketplace-api",
+    name: "Marketplace Order Management",
+    emoji: "store",
+    url: "https://api-design-and-data-modeling.vercel.app/",
+    iconBg: "rgba(16, 185, 129, 0.1)",
+    iconColor: "#10B981",
+    overview: "A full-scale artisan marketplace platform showcasing robust API design, data modeling, multi-seller action queues, order/payment tracing, and invariant state machines.",
+    tags: ["API Design", "Data Modeling", "Next.js", "Full Stack"],
+  },
+  {
+    slug: "payment-subscription",
+    name: "Payment & Subscription Slice",
+    emoji: "credit-card",
+    url: "https://github.com/joshua468/payment-subscription-slice",
+    iconBg: "rgba(59, 130, 246, 0.1)",
+    iconColor: "#3B82F6",
+    overview: "Production subscription billing slice with Flutterwave test-mode subscriptions, payment logs, proration calculations, and webhook idempotency handling.",
+    tags: ["Fintech", "Flutterwave", "TypeScript", "Webhooks"],
+  },
+  {
+    slug: "auth-slice",
+    name: "The Authentication Slice",
+    emoji: "shield",
+    url: "https://github.com/joshua468/Authentication-Slide",
+    iconBg: "rgba(139, 92, 246, 0.1)",
+    iconColor: "#8B5CF6",
+    overview: "An enterprise-grade, privacy-first identity management system with zero raw token storage, bcrypt hashing, stateful session invalidation, and anti-enumeration guarantees.",
+    tags: ["Auth", "Security", "Prisma", "PostgreSQL"],
+  },
+  {
+    slug: "records-access",
+    name: "DispatchFlow (Records & Access)",
+    emoji: "clipboard",
+    url: "https://github.com/joshua468/Records-Access-Slice",
+    iconBg: "rgba(234, 88, 12, 0.1)",
+    iconColor: "#EA580C",
+    overview: "Delivery dispatch-order logging engine featuring structurally enforced user ownership, zero fake data states, and an immutable audit trail for every deletion.",
+    tags: ["Access Control", "SQLite", "Audit Trail", "TypeScript"],
+  },
+  {
+    slug: "background-jobs",
+    name: "Background Jobs System",
+    emoji: "cpu",
+    url: "https://github.com/joshua468/background-job",
+    iconBg: "rgba(236, 72, 153, 0.1)",
+    iconColor: "#EC4899",
+    overview: "A production-shaped background job queue with separate worker processes, exponential backoff with jitter, dead-letter recovery queues, and stuck job sweeps.",
+    tags: ["Job Queue", "Worker Engine", "PostgreSQL", "Node.js"],
+  },
+  {
+    slug: "buka-finder-repo",
+    name: "Buka Finder API (Engine)",
+    emoji: "git-branch",
+    url: "https://github.com/joshua468/buka-finder-api",
+    iconBg: "rgba(245, 158, 11, 0.1)",
+    iconColor: "#D97706",
+    overview: "The backend repository for Buka Finder — a high-performance Go + Gin REST API managing food delivery restaurants, menus, UUID v4 resources, and kobo-based billing.",
+    tags: ["Go", "Gin", "PostgreSQL", "REST API"],
+  },
 ]
 
 export const capabilities = [
@@ -214,6 +294,17 @@ export const capabilities = [
 ]
 
 export const experience = [
+  {
+    date: "March 2026",
+    company: "AI Engineering Internship",
+    role: "AI Engineering Intern",
+    points: [
+      "Learning and applying AI engineering principles, including effective prompting, context engineering, and structured workflows using PRDs, rules, and reusable skills to guide AI-assisted development",
+      "Building functional applications by defining requirements, setting constraints, validating outputs, and keeping users in control of the final experience",
+      "Selected projects: CrampAI (AI-powered menstrual health assistant), Grade Calculator (academic planning and performance tracking tool), Calorie Tracker (simple nutrition-tracking application)",
+      "ConvertDoc (document conversion tool) and Payment & Subscription Slice (subscription billing, webhook verification, and duplicate-event protection)",
+    ],
+  },
   {
     date: "Oct 2025 — Feb 2026",
     company: "HealthAI",
@@ -235,3 +326,90 @@ export const experience = [
     ],
   },
 ]
+
+export interface PluginItem {
+  slug: string
+  name: string
+  tagline: string
+  badge: string
+  accentColor: string
+  gradient: string
+  description: string
+  url: string
+  isNew?: boolean
+  stats: { value: string; label: string }[]
+  features: {
+    title: string
+    desc: string
+    iconType: string
+  }[]
+}
+
+export const plugins: PluginItem[] = [
+  {
+    slug: "modal-builder",
+    name: "Modal Builder",
+    tagline: "Prompt to Production Modal",
+    badge: "Figma Plugin",
+    isNew: true,
+    accentColor: "#D97706",
+    gradient: "linear-gradient(90deg, #F59E0B, #EA580C)",
+    description: "Turns plain-language descriptions into complete, production-ready modals styled by your design-system tokens or a color you choose.",
+    url: "https://www.figma.com/community/plugin/1683918906023341306/modal-builder?fuid=1072226195916375247",
+    stats: [
+      { value: "Instant", label: "Prompt to Modal" },
+      { value: "Tokens", label: "Design System Aware" },
+      { value: "Free", label: "On Figma Community" },
+    ],
+    features: [
+      {
+        title: "Natural Language Prompts",
+        desc: "Describe the dialog in a sentence ('Confirm this destructive change', 'Log in with email and password') and Modal Builder handles the rest.",
+        iconType: "prompt",
+      },
+      {
+        title: "Design System & Token Aware",
+        desc: "Automatically styled by your local design-system tokens, variables, or custom brand colors with light and dark theme support.",
+        iconType: "palette",
+      },
+      {
+        title: "Complete Dialog Patterns",
+        desc: "Confirmations, alerts, forms, action menus, loading states, and mobile bottom sheets with prompt-aware controls.",
+        iconType: "layout",
+      },
+    ],
+  },
+  {
+    slug: "frameforge",
+    name: "FrameForge",
+    tagline: "React Export",
+    badge: "Figma Plugin",
+    accentColor: "#7C6FFF",
+    gradient: "linear-gradient(90deg, #7C6FFF, #4A8BF7)",
+    description: "Turn any Figma frame into clean, production-ready React components, and move from design to code faster with less repetitive work.",
+    url: "https://www.figma.com/community/plugin/1648400984820108659/frameforge-react-export",
+    stats: [
+      { value: "100%", label: "Type-safe output" },
+      { value: "Clean JSX", label: "Production-ready" },
+      { value: "Free", label: "On Figma Community" },
+    ],
+    features: [
+      {
+        title: "One-Click Export",
+        desc: "Export any Figma frame to a clean React component in a single click.",
+        iconType: "bolt",
+      },
+      {
+        title: "Clean Code Output",
+        desc: "Generate readable, production-ready React code instantly.",
+        iconType: "code",
+      },
+      {
+        title: "Design to Development",
+        desc: "Turn designs into code faster with a seamless, repeatable workflow.",
+        iconType: "workflow",
+      },
+    ],
+  },
+]
+

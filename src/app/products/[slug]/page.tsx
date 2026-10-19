@@ -48,6 +48,73 @@ function ProductIcon({ slug }: { slug: string }) {
           <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2" />
         </svg>
       )
+    case "bukafinder":
+      return (
+        <svg {...s}>
+          <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+          <path d="M7 2v20" />
+          <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+        </svg>
+      )
+    case "convertdoc":
+      return (
+        <svg {...s}>
+          <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+          <polyline points="14 2 14 8 20 8" />
+          <path d="M8 13h8" />
+          <path d="M8 17h8" />
+        </svg>
+      )
+    case "marketplace-api":
+      return (
+        <svg {...s}>
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+          <path d="M3 6h18" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </svg>
+      )
+    case "payment-subscription":
+      return (
+        <svg {...s}>
+          <rect width="20" height="14" x="2" y="5" rx="2" />
+          <line x1="2" x2="22" y1="10" y2="10" />
+        </svg>
+      )
+    case "auth-slice":
+      return (
+        <svg {...s}>
+          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+          <path d="m9 12 2 2 4-4" />
+        </svg>
+      )
+    case "records-access":
+      return (
+        <svg {...s}>
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          <rect x="8" y="2" width="8" height="4" rx="1" />
+          <path d="m9 14 2 2 4-4" />
+        </svg>
+      )
+    case "background-jobs":
+      return (
+        <svg {...s}>
+          <rect width="16" height="16" x="4" y="4" rx="2" />
+          <rect width="6" height="6" x="9" y="9" rx="1" />
+          <path d="M15 2v2" /><path d="M15 20v2" />
+          <path d="M2 15h2" /><path d="M2 9h2" />
+          <path d="M20 15h2" /><path d="M20 9h2" />
+          <path d="M9 2v2" /><path d="M9 20v2" />
+        </svg>
+      )
+    case "buka-finder-repo":
+      return (
+        <svg {...s}>
+          <line x1="6" x2="6" y1="3" y2="15" />
+          <circle cx="18" cy="6" r="3" />
+          <circle cx="6" cy="18" r="3" />
+          <path d="M18 9a9 9 0 0 1-9 9" />
+        </svg>
+      )
     default:
       return (
         <svg {...s}>

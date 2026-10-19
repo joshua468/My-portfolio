@@ -39,3 +39,6 @@ next-env.d.ts
 /dev-server.log
 /*.png
 /Adegbesan Joshua Temitope CV.pdf
+
+.vercel
+.env*

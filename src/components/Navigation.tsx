@@ -14,7 +14,7 @@ const links = [
 const mobileLinks = [
   ...links,
   { href: "/plugin", label: "plugin" },
-  { href: "/Adegbesan Joshua Temitope CV.pdf", label: "cv", external: true },
+  { href: "/Adegbesan_Joshua_Temitope_CV.docx", label: "cv", external: true },
 ]
 
 export default function Navigation() {
@@ -70,7 +70,7 @@ export default function Navigation() {
           </li>
         ))}
         <li>
-          <a href="/Adegbesan Joshua Temitope CV.pdf" target="_blank" rel="noopener noreferrer" className="text-sm text-[#6B6B68] hover:text-[#7C6FFF] transition-colors">
+          <a href="/Adegbesan_Joshua_Temitope_CV.docx" target="_blank" rel="noopener noreferrer" className="text-sm text-[#6B6B68] hover:text-[#7C6FFF] transition-colors">
             cv
           </a>
         </li>

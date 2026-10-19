@@ -1,7 +1,13 @@
-"use client"
+import { useEffect, useSyncExternalStore } from "react"
+import { motion, useMotionValue, useSpring } from "framer-motion"
 
-import { useEffect, useRef } from "react"
-import { motion, useMotionValue, useSpring, animate } from "framer-motion"
+const subscribeTouch = (callback: () => void) => {
+  const m = window.matchMedia("(pointer: coarse)")
+  m.addEventListener("change", callback)
+  return () => m.removeEventListener("change", callback)
+}
+const getTouch = () => window.matchMedia("(pointer: coarse)").matches
+const getServerTouch = () => false
 
 export default function Cursor() {
   const cursorX = useMotionValue(-100)
@@ -14,11 +20,10 @@ export default function Cursor() {
   const springY = useSpring(cursorY, springConfig)
 
   const trailScale = useSpring(1, { damping: 20, stiffness: 300 })
-  const isTouchDevice = useRef(true)
+  const isTouchDevice = useSyncExternalStore(subscribeTouch, getTouch, getServerTouch)
 
   useEffect(() => {
-    isTouchDevice.current = window.matchMedia("(pointer: coarse)").matches
-    if (isTouchDevice.current) return
+    if (isTouchDevice) return
 
     const move = (e: MouseEvent) => {
       cursorX.set(e.clientX)
@@ -55,7 +60,7 @@ export default function Cursor() {
     }
   }, [cursorX, cursorY, trailX, trailY, trailScale])
 
-  if (isTouchDevice.current) return null
+  if (isTouchDevice) return null
 
   return (
     <>

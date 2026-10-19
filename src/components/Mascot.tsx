@@ -23,10 +23,10 @@ export default function Mascot() {
   const [waving, setWaving] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const greetingTimer = useRef<ReturnType<typeof setTimeout>[]>([])
-  const prefersReduced = useRef(false)
+  const [prefersReduced, setPrefersReduced] = useState(false)
 
   useEffect(() => {
-    prefersReduced.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    setPrefersReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
 
     // Show greeting 1s after mount
     const t1 = setTimeout(() => {
@@ -67,7 +67,7 @@ export default function Mascot() {
   }, [])
 
   const handleMouseEnter = useCallback(() => {
-    if (prefersReduced.current) return
+    if (prefersReduced) return
     setWaving(true)
     setTimeout(() => setWaving(false), 800)
 
@@ -75,14 +75,14 @@ export default function Mascot() {
       setHoverMsg(randomFrom(HOVER_MESSAGES))
       setHoverVisible(true)
     }
-  }, [greetingDismissed, showGreeting])
+  }, [greetingDismissed, showGreeting, prefersReduced])
 
   const handleMouseLeave = useCallback(() => {
     setHoverVisible(false)
     setHoverMsg(null)
   }, [])
 
-  const bubbleClass = prefersReduced.current
+  const bubbleClass = prefersReduced
     ? "mascot-bubble mascot-bubble--visible"
     : `mascot-bubble${showGreeting ? " mascot-bubble--visible" : ""}${hoverVisible && hoverMsg ? " mascot-bubble--visible" : ""}`
 

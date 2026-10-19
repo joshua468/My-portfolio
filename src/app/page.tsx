@@ -53,6 +53,73 @@ function ProductIcon({ slug }: { slug: string }) {
           <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2" />
         </svg>
       )
+    case "bukafinder":
+      return (
+        <svg {...s}>
+          <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+          <path d="M7 2v20" />
+          <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+        </svg>
+      )
+    case "convertdoc":
+      return (
+        <svg {...s}>
+          <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+          <polyline points="14 2 14 8 20 8" />
+          <path d="M8 13h8" />
+          <path d="M8 17h8" />
+        </svg>
+      )
+    case "marketplace-api":
+      return (
+        <svg {...s}>
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+          <path d="M3 6h18" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </svg>
+      )
+    case "payment-subscription":
+      return (
+        <svg {...s}>
+          <rect width="20" height="14" x="2" y="5" rx="2" />
+          <line x1="2" x2="22" y1="10" y2="10" />
+        </svg>
+      )
+    case "auth-slice":
+      return (
+        <svg {...s}>
+          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+          <path d="m9 12 2 2 4-4" />
+        </svg>
+      )
+    case "records-access":
+      return (
+        <svg {...s}>
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          <rect x="8" y="2" width="8" height="4" rx="1" />
+          <path d="m9 14 2 2 4-4" />
+        </svg>
+      )
+    case "background-jobs":
+      return (
+        <svg {...s}>
+          <rect width="16" height="16" x="4" y="4" rx="2" />
+          <rect width="6" height="6" x="9" y="9" rx="1" />
+          <path d="M15 2v2" /><path d="M15 20v2" />
+          <path d="M2 15h2" /><path d="M2 9h2" />
+          <path d="M20 15h2" /><path d="M20 9h2" />
+          <path d="M9 2v2" /><path d="M9 20v2" />
+        </svg>
+      )
+    case "buka-finder-repo":
+      return (
+        <svg {...s}>
+          <line x1="6" x2="6" y1="3" y2="15" />
+          <circle cx="18" cy="6" r="3" />
+          <circle cx="6" cy="18" r="3" />
+          <path d="M18 9a9 9 0 0 1-9 9" />
+        </svg>
+      )
     default:
       return (
         <svg {...s}>
@@ -129,7 +196,7 @@ export default function Home() {
             <div className="section-h">
               <p className="label">Portfolio</p>
               <h2 className="h2">Featured Projects</h2>
-              <p className="text-secondary text-sm leading-relaxed mt-2" style={{ maxWidth: 640 }}>A selection of products, platforms, and experiences designed to solve real-world problems.</p>
+              <p className="text-secondary text-sm leading-relaxed mt-1 mb-6" style={{ maxWidth: 640 }}>A selection of products, platforms, and experiences designed to solve real-world problems.</p>
             </div>
           </ScrollReveal>
 
@@ -167,15 +234,12 @@ export default function Home() {
                       <div className="min-w-0">
                         <p className="text-xs font-medium text-tertiary mb-1" style={{ letterSpacing: '0.04em' }}>{project.year} &middot; {project.tags.slice(0, 2).join(', ')}</p>
                         <h3 className="text-lg md:text-xl font-bold tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{project.title}</h3>
-                        <p className="text-secondary text-sm mt-1 line-clamp-3">{project.description}</p>
+                        <p className="text-secondary text-sm mt-2 leading-relaxed">{project.description}</p>
                       </div>
-                      <div className="flex flex-wrap items-center justify-between gap-2 shrink-0">
-                        <div className="flex items-center gap-2">
-                          {project.tags.slice(0, 2).map((t) => (
-                            <span key={t} className="tag">{t}</span>
-                          ))}
-                        </div>
-                        <span className="text-accent text-sm font-semibold shrink-0">&rarr;</span>
+                      <div className="flex flex-wrap items-center gap-2 shrink-0">
+                        {project.tags.slice(0, 2).map((t) => (
+                          <span key={t} className="tag">{t}</span>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -228,7 +292,7 @@ export default function Home() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mt-10">
-            {products.map((p) => (
+            {products.slice(0, 4).map((p) => (
               <ScrollReveal key={p.slug} stagger>
                 <a href={p.url} target="_blank" rel="noopener noreferrer" className="block card p-5 md:p-6 h-full group">
                     <div className="flex items-start justify-between mb-4">
@@ -251,6 +315,14 @@ export default function Home() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal>
+            <div className="mt-8 text-center">
+              <Link href="/products" className="btn btn-secondary">
+                See More &rarr;
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -293,10 +365,10 @@ export default function Home() {
               <p className="text-secondary text-sm leading-relaxed mb-5">
                 With a foundation in design and growing expertise in development, I bridge the gap between strategy, user experience, and execution.
               </p>
-              <p className="text-secondary text-sm leading-relaxed">
+              <p className="text-secondary text-sm leading-relaxed mb-5">
                 Based in {personal.location}, I&apos;m continuously expanding my AI capabilities to build products that create meaningful impact.
               </p>
-              <div className="mt-5">
+              <div className="mt-8">
                 <Link href="/about" className="btn btn-secondary">
                   More About Me &rarr;
                 </Link>
@@ -321,10 +393,10 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
             {capabilities.map((c, i) => (
               <ScrollReveal key={i} stagger>
-                <div className="card p-3 md:p-5 h-full group cap-card">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-md flex items-center justify-center" style={{ background: "var(--bg-alt)" }}>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <div className="card p-4 md:p-6 h-full group cap-card">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "#F0EEFD" }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C6FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                         {c.category === "Design" && <><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></>}
                         {c.category === "Strategy" && <><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></>}
                         {c.category === "Build" && <><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></>}
@@ -358,19 +430,28 @@ export default function Home() {
             {experience.map((exp, i) => (
               <ScrollReveal key={i} stagger>
                 <div className="relative flex flex-col md:flex-row gap-2 md:gap-10 py-6 md:py-8 border-b last:border-0">
-                  <div className="absolute exp-dot -left-[10px] top-[30px] w-[10px] h-[10px] rounded-full border-2" style={{ borderColor: "var(--accent)", background: "var(--bg)" }} />
                   <p className="text-xs sm:text-sm font-medium shrink-0 md:w-[140px]" style={{ color: "var(--text-secondary)" }}>{exp.date}</p>
                   <div>
                     <h3 className="font-semibold text-base md:text-lg" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}>{exp.company}</h3>
                     <p className="text-xs sm:text-sm font-medium mb-2" style={{ color: "var(--accent)", fontWeight: 600 }}>{exp.role}</p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2.5">
                       {exp.points.map((pt, j) => (
-                        <li key={j} className="text-xs sm:text-sm leading-relaxed" style={{ position: "relative", paddingLeft: 16, color: "var(--text-secondary)" }}>
-                          <span style={{ position: "absolute", left: 0, color: "var(--text-tertiary)" }}>&mdash;</span>
+                        <li key={j} className="text-xs sm:text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                           {pt}
                         </li>
                       ))}
                     </ul>
+                    {"link" in exp && exp.link && (
+                      <a
+                        href={exp.link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-3 text-xs sm:text-sm font-medium"
+                        style={{ color: "var(--accent)" }}
+                      >
+                        {exp.link.label} &rarr;
+                      </a>
+                    )}
                   </div>
                 </div>
               </ScrollReveal>
@@ -407,6 +488,9 @@ export default function Home() {
         </div>
 
         <Mascot />
+        <div className="real-tree-wrapper" aria-hidden="true">
+          <img src="/tree.png" alt="" className="real-tree" />
+        </div>
       </section>
 
       <footer className="text-center py-10 px-5 sm:px-6 border-t text-tertiary text-xs">
